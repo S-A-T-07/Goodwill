@@ -1,2 +1,2 @@
-# Goodwill
-Website for Goodwill Bakers and Restaurants
+# Goodwill Bakers and Restaurants
+“Baked with Care, Served with Love”
