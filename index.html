@@ -1,42 +1,48 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ================= META ================= -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Goodwill Bakers & Restaurant</title>
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ================= PERFORMANCE ================= -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1509440159596-0249088772ff"
+    />
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Fonts -->
+    <!-- ================= GOOGLE FONTS ================= -->
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
       rel="stylesheet"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- ================= TAILWIND ================= -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ================= CUSTOM CSS ================= -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body class="bg-gray-50 text-gray-800">
-    <!-- Navbar -->
+    <!-- ================= NAVBAR ================= -->
     <nav class="bg-orange-600 text-white fixed w-full z-50 shadow-lg">
       <div
         class="container mx-auto flex items-center justify-between px-4 py-3"
       >
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <img src="./Images/Logo.png" alt="Logo" class="h-12 w-12" />
+          <img src="./Images/Logo.png" alt="Goodwill Logo" class="h-12 w-12" />
           <span class="font-[Pacifico] text-xl hidden sm:block">Goodwill</span>
         </div>
 
@@ -44,16 +50,20 @@
         <ul class="hidden md:flex items-center gap-8 font-semibold">
           <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
           <li><a href="#about" class="hover:text-yellow-300">About</a></li>
-          <li><a href="#menu" class="hover:text-yellow-300">Menu</a></li>
-          <li><a href="#gallery" class="hover:text-yellow-300">Gallery</a></li>
+          <li><a href="menu.html" class="hover:text-yellow-300">Menu</a></li>
           <li>
             <a href="#location" class="hover:text-yellow-300">Location</a>
           </li>
+          <li><a href="#gallery" class="hover:text-yellow-300">Gallery</a></li>
           <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
         </ul>
 
         <!-- Mobile Button -->
-        <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">
+        <button
+          id="menu-btn"
+          class="md:hidden text-2xl focus:outline-none"
+          aria-label="Toggle Menu"
+        >
           ☰
         </button>
       </div>
@@ -65,14 +75,14 @@
       >
         <li class="py-2"><a href="#home">Home</a></li>
         <li class="py-2"><a href="#about">About</a></li>
-        <li class="py-2"><a href="#menu">Menu</a></li>
-        <li class="py-2"><a href="#gallery">Gallery</a></li>
+        <li class="py-2"><a href="menu.html">Menu</a></li>
         <li class="py-2"><a href="#location">Location</a></li>
+        <li class="py-2"><a href="#gallery">Gallery</a></li>
         <li class="py-2"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ================= HERO ================= -->
     <section
       id="home"
       class="h-screen flex items-center justify-center bg-hero text-white"
@@ -82,7 +92,6 @@
           <span class="font-[Pacifico] text-5xl sm:text-7xl md:text-9xl block">
             Goodwill
           </span>
-
           <span
             class="font-[Poppins] text-base sm:text-xl tracking-widest uppercase block mt-3"
           >
@@ -95,7 +104,7 @@
         </p>
 
         <a
-          href="#menu"
+          href="menu.html"
           class="bg-orange-600 px-9 py-3 rounded-full text-base sm:text-lg hover:bg-orange-700 transition duration-300"
         >
           View Menu
@@ -103,7 +112,8 @@
       </div>
     </section>
 
-    <section id="about" class="py-8 md:py-12 bg-white">
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="py-12 bg-white">
       <div class="container mx-auto px-4 md:px-6">
         <div class="mb-10">
           <h2 class="section-title">About Us</h2>
@@ -114,52 +124,36 @@
           </p>
         </div>
 
+        <!-- Opening Hours -->
         <div id="hours" class="bg-orange-50 py-8 rounded-2xl fade-on-scroll">
           <h2 class="section-title mb-4">Opening Hours</h2>
           <div class="max-w-md mx-auto bg-white shadow-md rounded-xl p-5">
             <p class="text-lg font-semibold mb-2">🕒 We Are Open</p>
-            <div class="mb-1">
-              <p class="text-base text-gray-700 font-medium">
-                Sunday – Saturday
-              </p>
-              <p class="text-lg font-bold text-orange-600">
-                08:00 AM – 11:00 PM
-              </p>
-            </div>
+            <p class="text-base text-gray-700 font-medium">Sunday – Saturday</p>
+            <p class="text-lg font-bold text-orange-600">08:00 AM – 11:00 PM</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Menu -->
-    <section
-      id="menu"
-      class="content-section bg-gray-100 py-14 md:py-20 container mx-auto px-4 md:px-6"
-    >
-      <div class="container mx-auto px-4 md:px-6">
-        <h2 class="section-title">Our Menu</h2>
+    <!-- Order Now Section -->
+    <section class="bg-orange-600 text-white py-16 text-center">
+      <h2 class="text-3xl font-bold mb-4">Order Now</h2>
+      <p class="mb-6 text-lg">
+        Enjoy your favorite dishes at home. Order online through Zomato.
+      </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-          <div class="menu-card fade-on-scroll">
-            <h3>Bakery Items</h3>
-            <p>Cakes, Bread, Pastries</p>
-          </div>
-
-          <div class="menu-card fade-on-scroll">
-            <h3>South Indian</h3>
-            <p>Dosa, Idli, Meals</p>
-          </div>
-
-          <div class="menu-card fade-on-scroll">
-            <h3>Fast Food</h3>
-            <p>Burgers, Sandwich, Fries</p>
-          </div>
-        </div>
-      </div>
+      <a
+        href="https://www.zomato.com/kochi/goodwill-bakers-ernakulam-city/order"
+        target="_blank"
+        class="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300"
+      >
+        Order on Zomato
+      </a>
     </section>
 
-    <!-- Location Section -->
-    <section id="location" class="bg-gray-100 py-14 md:py-20">
+    <!-- ================= LOCATION ================= -->
+    <section id="location" class="bg-gray-100 py-10">
       <div class="container mx-auto px-4 md:px-6 text-center">
         <h2 class="section-title mb-8">Location</h2>
 
@@ -168,59 +162,71 @@
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.3523128408647!2d76.25058307460094!3d9.987728490117066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08130005c26853%3A0xcf3fcec8318f1583!2sGoodwill%20Bakers%20%26%20Restaurant!5e0!3m2!1sen!2sin!4v1770802472795!5m2!1sen!2sin"
-            class="w-full h-[200px] sm:h-[280px] md:h-[320px] border-0"
-            allowfullscreen=""
+            class="w-full h-[300px] border-0"
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="bg-orange-50 py-20 md:py-32 min-h-screen">
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery" class="bg-orange-50 py-10 min-h-screen">
       <h2 class="section-title mb-8 text-center">Gallery</h2>
 
-      <!-- Continuous Slider -->
       <div class="image-slider">
         <div class="slider-track">
-          <!-- Images (1st set) -->
-          <img src="./Images/Interior/Counter.jpeg" />
-          <img src="./Images/Interior/Dining.jpeg" />
-          <img src="./Images/Interior/Front_View.jpeg" />
-          <img src="./Images/Interior/Shelf.jpeg" />
+          <!-- Repeat images twice for smooth animation -->
+          <img src="./Images/Interior/Counter.jpeg" alt="Restaurant Counter" />
+          <img src="./Images/Interior/Dining.jpeg" alt="Dining Area" />
+          <img src="./Images/Interior/Front_View.jpeg" alt="Front View" />
+          <img src="./Images/Interior/Shelf.jpeg" alt="Bakery Shelf" />
+          <img src="./Images/Food/Alfaham.jpeg" alt="Alfaham" />
+          <img src="./Images/Food/Chicken.jpeg" alt="Chicken Dish" />
+          <img src="./Images/Food/Fry.jpeg" alt="Fried Item" />
 
-          <!-- Duplicate Images (For Smooth Loop) -->
-          <img src="./Images/Food/Alfaham.jpeg" />
-          <img src="./Images/Food/Chicken.jpeg" />
-          <img src="./Images/Food/Fry.jpeg" />
+          <img src="./Images/Interior/Counter.jpeg" alt="" />
+          <img src="./Images/Interior/Dining.jpeg" alt="" />
+          <img src="./Images/Interior/Front_View.jpeg" alt="" />
+          <img src="./Images/Interior/Shelf.jpeg" alt="" />
+          <img src="./Images/Food/Alfaham.jpeg" alt="" />
+          <img src="./Images/Food/Chicken.jpeg" alt="" />
+          <img src="./Images/Food/Fry.jpeg" alt="" />
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-14 md:py-20 container mx-auto px-4 md:px-6">
-      <h2 class="section-title">Contact Us</h2>
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4 md:px-6 text-center">
+        <h2 class="section-title">Contact Us</h2>
 
-      <div class="text-center mt-6 space-y-3 fade-on-scroll">
-        <p>
-          <strong>Address:</strong>
-          X7Q3+37R, Vallarpadam, Kochi, Ernakulam, Kerala 682504
-        </p>
-        <p>
-          <strong>Phone:</strong>
-          <a href="tel:+919633503513">+91 9633503513</a>
-        </p>
+        <div class="mt-6 space-y-3 fade-on-scroll">
+          <p>
+            <strong>Phone:</strong>
+            <a href="tel:+919633503513">+91 9633503513</a>
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-orange-600 text-white text-center p-4 text-sm">
-      <p>© 2020 Goodwill Bakers & Restaurant</p>
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-orange-600 text-white text-center p-4 text-base">
+      © 2026 Goodwill Bakers & Restaurant. All rights reserved.
+      <hr class="border-t border-white my-2 w-60 mx-auto opacity-50" />
+      <span class="text-gray-200 text-sm">
+        Built by
+        <a
+          href="https://metaloom.in/"
+          target="_blank"
+          class="hover:text-yellow-200 underline"
+        >
+          MetaLoom
+        </a>
+      </span>
     </footer>
 
-    <!-- External JS -->
+    <!-- ================= JS ================= -->
     <script src="./script.js"></script>
   </body>
 </html>

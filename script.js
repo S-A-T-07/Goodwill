@@ -1,8 +1,46 @@
-// 1. Scroll Animation (Fade-in effect)
+/* =================================
+   DOM ELEMENTS
+================================= */
+const nav = document.querySelector("nav");
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll("nav ul li a");
 const faders = document.querySelectorAll(".fade-on-scroll");
 
+/* =================================
+   1. NAVBAR SCROLL EFFECT + ACTIVE LINK
+================================= */
+window.addEventListener("scroll", () => {
+  // Navbar shadow effect
+  nav.classList.toggle("shadow-xl", window.scrollY > 50);
+
+  // Active link highlighting
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.clientHeight;
+
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navItems.forEach((link) => {
+    link.classList.remove("text-yellow-300");
+
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("text-yellow-300");
+    }
+  });
+});
+
+/* =================================
+   2. SCROLL FADE-IN ANIMATION
+================================= */
 const observerOptions = {
-  threshold: 0.1, // Triggers when 10% of the element is visible
+  threshold: 0.1,
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -15,35 +53,18 @@ const observer = new IntersectionObserver((entries) => {
 
 faders.forEach((fade) => observer.observe(fade));
 
-// 2. Mobile Menu Toggle
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
+/* =================================
+   3. MOBILE MENU TOGGLE
+================================= */
 
-// Toggle menu on button click
+// Toggle menu
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-// Automatically close mobile menu when a link is clicked
-const mobileLinks = mobileMenu.querySelectorAll("a");
-mobileLinks.forEach((link) => {
+// Close menu when link clicked
+mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileMenu.classList.add("hidden");
   });
 });
-
-// 3. Navbar Active Highlight (Refined)
-// This highlights the link without hiding the rest of the page
-const navLinks = document.querySelectorAll("nav ul li a");
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", function () {
-    // Remove active color from all links
-    navLinks.forEach((l) => l.classList.remove("text-yellow-300"));
-    // Add active color to the clicked link
-    this.classList.add("text-yellow-300");
-  });
-});
-
-// NOTE: Gallery JS was removed because your CSS @keyframes
-// 'scrollGallery' already handles the continuous movement perfectly.
